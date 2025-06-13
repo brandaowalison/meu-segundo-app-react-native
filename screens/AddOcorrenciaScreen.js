@@ -7,7 +7,7 @@ import styles from '../styles/styles';
 
 const API_URL = 'https://meu-segundo-app-react-native-backend.onrender.com'
 
-export default function  AddOcorrenciaScrenn({ navigation }) {
+export default function  AddOcorrenciaScreen({ navigation }) {
     const [titulo, setTitulo] = useState('');
     const [descricao, setDescricao] = useState('');
     const [image, setImage] = useState(null);

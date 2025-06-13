@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScrenn';
-import AddOcorrenciaScrenn from './screens/AddOcorrenciaScreen';
+import AddOcorrenciaScreen from './screens/AddOcorrenciaScreen';
 import MapScreen from './screens/MapScreen';
 import { PaperProvider, Provider as PeperProvider } from 'react-native-paper';
 
@@ -13,9 +13,9 @@ export default function App() {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack name="Home" component={HomeScreen}/>
-          <Stack name="Add Ocorrência" component={AddOcorrenciaScrenn} />
-          <Stack name="Mapa" component={MapScreen} />
+          <Stack.Screen name="Home" component={HomeScreen}/>
+          <Stack.Screen name="Add Ocorrência" component={AddOcorrenciaScreen} />
+          <Stack.Screen name="Mapa" component={MapScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

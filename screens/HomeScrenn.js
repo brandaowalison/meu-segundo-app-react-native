@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, FlatList, Image, TouchableOpacity } from 'react-native';
 import { FAB, Card, Title, Paragraph } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import styles from '../styles/styles';
 
 const API_URL = 'https://meu-segundo-app-react-native-backend.onrender.com';
 
@@ -31,7 +32,7 @@ export default function HomeScreen() {
                             <Paragraph>{item.descricao}</Paragraph>
                         </Card.Content>
                         {item.photo && (
-                            <Card.Cover source={{ uri: `${API_URL}/${item.photo}`}} style={styles.image}/>
+                            <Card.Cover source={{ uri: item.photo.startsWith('http') ? item.photo : `${API_URL}/${item.photo}` }} style={styles.image}/>
                         )}
                     </Card>
                 )}
