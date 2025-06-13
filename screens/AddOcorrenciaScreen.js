@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Button } from 'react-native';
-import { TextInput, Button } from 'expo-image-picker';
-import * as Location from  'expo-location';
+import { View, Image, Alert } from 'react-native';
+import { TextInput, Button } from 'react-native-paper';
+import * as Location from 'expo-location';
 import * as ImagePicker from 'expo-image-picker';
 import styles from '../styles/styles';
 
@@ -11,7 +11,7 @@ export default function  AddOcorrenciaScrenn({ navigation }) {
     const [titulo, setTitulo] = useState('');
     const [descricao, setDescricao] = useState('');
     const [image, setImage] = useState(null);
-    const [lacation, setLocation] = useState(null);
+    const [location, setLocation] = useState(null);
 
     useEffect(() => {
         ( async () => {
@@ -61,11 +61,11 @@ export default function  AddOcorrenciaScrenn({ navigation }) {
         }
 
         try {
-            await fetch(`${API_URL}/ocrrencia/`, {
+            await fetch(`${API_URL}/api/ocorrencia/`, {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Content-Type': 'multpart/form-data',
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             navigation.navigate('Home');
@@ -80,7 +80,7 @@ export default function  AddOcorrenciaScrenn({ navigation }) {
                 label="Título da ocorrência"
                 value={titulo}
                 onChangeText={setTitulo}
-                styles={styles.input}
+                style={styles.input}
                 mode="outlined"
             />
             <TextInput
